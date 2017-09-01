@@ -13,28 +13,9 @@ namespace Vue.Controllers
     {
         // GET api/values
         [HttpGet]
-        public Profile Get()
+        public dynamic Get()
         {
-            return new Profile 
-            { 
-                Demographics = new Demographics 
-                {
-                    FirstName = "John",
-                    MiddleName = "Chandler",
-                    LastName = "Watson",
-                    Age = 26,
-                    Gender = Domain.Gender.Male
-                },
-                Experience = new List<Experience>
-                {
-                    new Experience 
-                    { 
-                        Duration = "Two years",
-                        Company = "Usable Life",
-                        Title = "Developer II"
-                    }
-                }
-            };
+            return new {};
         }
 
         // GET api/values/5

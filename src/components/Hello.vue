@@ -31,9 +31,10 @@
     // Send a request to /api/profile
     created () {
       this.$http
-          .get('/api/profile')
+          .get('/api/home')
           .then((res) => {
-            this.msg = 'Hello ' + res.body.demographics.firstName
+            console.log(res.body)
+            this.msg = 'Active Table # ' + res.body.activeParties[0].table.number
           })
           .catch((ex) => console.log(ex))
     }
