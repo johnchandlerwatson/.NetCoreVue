@@ -1,10 +1,14 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Welcome to Serve+</h1>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <p>testing bootstrap</p>
+          <div class="flexrow">
+            <div v-for="party in model.activeParties" :key="party.Id">
+              <party :party="party"></party>
+            </div>
+          </div>
           <button class="btn btn-lg btn-success">Click me!</button>
         </div>
       </div>
@@ -13,11 +17,17 @@
 </template>
 
 <script>
+  import party from './Party.vue'
+
   export default {
     name: 'hello',
+
+    components: { party },
+
     data () {
+      var model = {activeParties: [{table: {number: 1}}]}
       return {
-        msg: 'Pulling data..'
+        model
       }
     },
     // Send a request to /api/profile
@@ -25,8 +35,7 @@
       this.$http
           .get('/api/home')
           .then((res) => {
-            console.log(res.body)
-            this.msg = 'Active Table # ' + res.body.activeParties[0].table.number
+            this.model = res.body
           })
           .catch((ex) => console.log(ex))
     }
@@ -35,7 +44,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h, h2 {
   font-weight: normal;
 }
 </style>

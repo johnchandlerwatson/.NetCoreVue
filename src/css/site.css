@@ -1,0 +1,7 @@
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: true;
+    align-items: center;
+    justify-content: center;
+}

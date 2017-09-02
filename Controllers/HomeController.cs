@@ -33,6 +33,10 @@ namespace Vue.Controllers
                                 }
                             }
                         }
+                    },
+                    new Party
+                    { 
+                        Table = new Table { Number = 3 }
                     }
                 }
             };
