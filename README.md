@@ -1,4 +1,4 @@
-![Alt text](./src/assets/logo.png?raw=true "logo")
+![Alt text](./src/assets/logo.png?raw=true "logo" width="150")
 
 # .NetCoreVue
 
