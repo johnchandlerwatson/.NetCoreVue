@@ -5,3 +5,26 @@
     align-items: center;
     justify-content: center;
 }
+
+html, body {
+    background: #f7f7f7;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-holder {
+    justify-content: flex-end;
+    display: flex;
+}
+
+img {
+    width:150px; /* you can use % */
+    height: auto;
+}
+
+p {
+    margin: 0;
+}

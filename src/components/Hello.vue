@@ -9,7 +9,6 @@
               <party :party="party"></party>
             </div>
           </div>
-          <button class="btn btn-lg btn-success">Click me!</button>
         </div>
       </div>
     </div>

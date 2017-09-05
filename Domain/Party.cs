@@ -11,5 +11,8 @@ namespace Vue.Domain
         public List<Order> Orders { get; set; } = new List<Order>();
         public DateTime? CheckoutTime { get; set; }
         public double Total => Orders.Sum(x => x.Items.Sum(y => y.Item.Price));
+        public List<decimal> AllWarnings => Orders.SelectMany(x => x.Items.Select(y => y.WarningLevel)).ToList();
+        public int AvgWarningLevel => AllWarnings == null || !AllWarnings.Any() 
+            ? 0 : (int) AllWarnings.Average(x => x);
     }
 }

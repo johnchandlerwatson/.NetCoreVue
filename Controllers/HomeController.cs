@@ -13,7 +13,7 @@ namespace Vue.Controllers
         [HttpGet]
         public HomeModel Get()
         {
-            return new HomeModel {
+            var model = new HomeModel {
                 ActiveParties = new List<Party>
                 {
                     new Party
@@ -21,13 +21,13 @@ namespace Vue.Controllers
                         Table = new Table { Number = 1 },
                         Orders = new List<Order>
                         {
-                            new Order 
+                            new Order(1) 
                             {
                                 Items = new List<ItemOrder>
                                 {
                                     new ItemOrder 
                                     { 
-                                        TimeRequested = DateTime.Now.AddMinutes(-5),
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
                                         Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Coke" }
                                     }
                                 }
@@ -36,10 +36,52 @@ namespace Vue.Controllers
                     },
                     new Party
                     { 
-                        Table = new Table { Number = 3 }
+                        Table = new Table { Number = 2 },
+                        Orders = new List<Order>
+                        {
+                            new Order(1)
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-11),
+                                        Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Dr Pepper" }
+                                    },
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-11),
+                                        Item = new Item { Price = 2, ItemType = ItemType.Food, Name = "Fries" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    new Party
+                    { 
+                        Table = new Table { Number = 3 },
+                        Orders = new List<Order>
+                        {
+                            new Order(1)
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-6),
+                                        Item = new Item { Price = 5, ItemType = ItemType.Food, Name = "Burger" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    new Party
+                    { 
+                        Table = new Table { Number = 4 }
                     }
                 }
             };
+            return model;
         }
     }
 }
