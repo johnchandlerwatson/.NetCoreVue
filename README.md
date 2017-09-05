@@ -8,5 +8,8 @@
 * .net core 2.0
 * node
 * npm
-* aspnet-webpack
+* vue-cli
+```
+    npm install vue-cli --global
+```
 
