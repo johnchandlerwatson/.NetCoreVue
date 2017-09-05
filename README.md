@@ -1,4 +1,4 @@
-![Alt text](../src/assets/logo.png?raw=true "logo")
+![Alt text](./src/assets/logo.png?raw=true "logo")
 
 # .NetCoreVue
 
@@ -7,3 +7,6 @@
 ## Dependencies:
 * .net core 2.0
 * node
+* npm
+* aspnet-webpack
+
