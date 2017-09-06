@@ -2,16 +2,14 @@
     <div class="table-card" v-bind:class="warningLevelClass">
       <div class="flexcolumn">
         <h4 class="table-header">Table: {{ party.table.number }}</h4>
-        <div id="orders" style="height: 150px">
-          <div v-for="order in party.orders" :key="order.Id">
-            <order :order="order"></order>
-          </div>
+        <div class="info-section">
+          <p>{{party.orderCount}} orders</p>
+          <p>{{party.maxMinutesWaiting}} minutes waiting</p>
         </div>
         <div class="btn-holder">
-          <button class="btn btn-sm btn-default" style="margin-right: 10px">
-            Add Order
-          </button>
-        </div>   
+          <button class="btn btn-sm btn-default">Add Order</button>
+          <button class="btn btn-sm btn-default">Checkout</button>
+        </div>
       </div>  
     </div>
 </template>
@@ -50,10 +48,18 @@
 <style scoped>
   .table-card {
     width: 200px;
-    height: 250px;
+    height: 175px;
     box-shadow: 1px 1px 6px #888888;
     border-radius: 15px;
     margin: 20px;
+  }
+
+  .info-section {
+    height: 75px;
+  }
+
+  .btn-holder > button {
+    margin-right: 15px;
   }
 
   .table-header

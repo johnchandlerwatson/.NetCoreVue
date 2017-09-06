@@ -31,6 +31,49 @@ namespace Vue.Controllers
                                         Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Coke" }
                                     }
                                 }
+                            },
+                            new Order(2) 
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
+                                        Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Sprite" }
+                                    },
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
+                                        Item = new Item { Price = 1, ItemType = ItemType.Food, Name = "Cookie" }
+                                    }
+                                }
+                            },
+                            new Order(3) 
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
+                                        Item = new Item { Price = 4, ItemType = ItemType.Drink, Name = "Beer" }
+                                    },
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
+                                        Item = new Item { Price = 6, ItemType = ItemType.Food, Name = "Pizza" }
+                                    }
+                                }
+                            },
+                            new Order(4) 
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-25),
+                                        Item = new Item { Price = 3, ItemType = ItemType.Drink, Name = "Shake" }
+                                    }
+                                }
                             }
                         }
                     },
