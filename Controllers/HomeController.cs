@@ -6,10 +6,16 @@ using Vue.Models;
 
 namespace Vue.Controllers
 {
-    [Route("api/[controller]")]
+    
     public class HomeController : Controller
     {
-        // GET api/values
+        [Route("api/[controller]/validatePin/{pin}")]
+        public bool ValidatePin(int pin)
+        {
+            return pin == 123;
+        }
+
+        [Route("api/[controller]")]
         [HttpGet]
         public HomeModel Get()
         {

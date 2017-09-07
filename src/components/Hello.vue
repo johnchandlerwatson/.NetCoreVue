@@ -12,16 +12,19 @@
         </div>
       </div>
     </div>
+    <loginmodal/>
+    <v-dialog/>
   </div>
 </template>
 
 <script>
   import party from './Party.vue'
+  import loginmodal from './LoginModal.vue'
 
   export default {
     name: 'hello',
 
-    components: { party },
+    components: { party, loginmodal },
 
     data () {
       var model = {activeParties: [{table: {number: 1}}]}
@@ -37,6 +40,9 @@
             this.model = res.body
           })
           .catch((ex) => console.log(ex))
+    },
+    mounted () {
+      this.$modal.show('loginmodal')
     }
   }
 </script>
