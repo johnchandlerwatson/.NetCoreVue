@@ -69,16 +69,6 @@
               body: JSON.stringify(this.model)
             })
           .then(function (res) { res.json() })
-        },
-        beforeClose (event) {
-          if (this.notValidPin) {
-            event.stop()
-          }
-        },
-        entermonitor: function (event) {
-          if (event.key === 'Enter') {
-            this.validatePin()
-          }
         }
       }
     }
