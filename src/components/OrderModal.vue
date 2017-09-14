@@ -58,16 +58,6 @@
               }
             })
             .catch((ex) => console.log(ex))
-        },
-        beforeClose (event) {
-          if (this.notValidPin) {
-            event.stop()
-          }
-        },
-        entermonitor: function (event) {
-          if (event.key === 'Enter') {
-            this.validatePin()
-          }
         }
       }
     }
