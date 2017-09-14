@@ -1,7 +1,7 @@
 .flexrow {
     display: flex;
     flex-direction: row;
-    flex-wrap: true;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -16,12 +16,14 @@ html, body {
 }
 
 .btn-holder {
+    margin-top: 20px;
     justify-content: flex-end;
     display: flex;
+    margin-right: 75px;
 }
 
 img {
-    width:150px; /* you can use % */
+    width: 125px; /* you can use % */
     height: auto;
 }
 

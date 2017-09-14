@@ -8,6 +8,7 @@ namespace Vue.Domain
         public DateTime TimeRequested { get; set; }
         public DateTime? TimeReceived { get; set; }
         public Item Item { get; set; }
+        public int Quantity { get; set; }
         public int MinutesWaiting => DateTime.Now.Subtract(TimeRequested).Minutes;
         public decimal WarningLevel => GetWarningLevel(MinutesWaiting);
         private decimal GetWarningLevel(int minutes)

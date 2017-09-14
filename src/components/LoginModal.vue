@@ -1,23 +1,23 @@
 <template>
-    <modal name="loginmodal" transition="pop-out" :width="modalWidth" :height="250" @before-close="beforeClose">
+    <modal name="login-modal" transition="pop-out" :width="modalWidth" :height="250" @before-close="beforeClose">
         <div class="box">
-            <div class="box-part" id="bp-left">
-                <div class="partition" id="partition-register">
-                    <div class="partition-title">LOG-IN</div>                      
-                        <div class="partition-form">
-                            <form autocomplete="false">
-                                <input v-bind:class="{ notValid: notValidPin & loginAttempts > 0 }" v-model="pin" type="text" placeholder="Pin">
-                            </form>
-                            <div style="margin-top: 42px"></div>
-                            <div class="button-set">
-                                <button v-on:click="validatePin">Log In</button>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="box-messages">
-                </div>
+          <div class="partition-title">LOG-IN</div>                      
+              <div class="partition-form">
+                  <form autocomplete="false">
+                      <input 
+                        v-bind:class="{ notValid: notValidPin & loginAttempts > 0 }" 
+                        v-model="pin"
+                        v-on:keyup="entermonitor"
+                        type="text" 
+                        placeholder="Pin">
+                  </form>
+                  <div style="margin-top: 42px"></div>
+                  <div class="button-set">
+                      <button v-on:click="validatePin">Log In</button>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
     </modal>
 </template>
@@ -47,7 +47,7 @@
             .then((res) => {
               if (res.body) {
                 this.notValidPin = false
-                this.$modal.hide('loginmodal')
+                this.$modal.hide('login-modal')
               } else {
                 this.notValidPin = true
               }
@@ -57,6 +57,11 @@
         beforeClose (event) {
           if (this.notValidPin) {
             event.stop()
+          }
+        },
+        entermonitor: function (event) {
+          if (event.key === 'Enter') {
+            this.validatePin()
           }
         }
       }
@@ -74,49 +79,19 @@ $background_color: #404142;
   box-shadow: 0 0 40px black;
   color: #8b8c8d;
   font-size: 0;
-  .box-part {
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
+}
+  .partition-title {
     box-sizing: border-box;
-    height: 100%;
+    padding: 30px;
     width: 100%;
-  }
-  .box-messages {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-  .box-error-message {
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 0;
-    line-height: 32px;
-    padding: 0 12px;
     text-align: center;
-    width: 100%;
-    font-size: 15px;
-    color: white;
-    background: #F38181;
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 300;
   }
-  .partition {
-    width: 100%;
-    height: 100%;
-    .partition-title {
-      box-sizing: border-box;
-      padding: 30px;
-      width: 100%;
-      text-align: center;
-      letter-spacing: 1px;
-      font-size: 25px;
-      font-weight: 300;
-    }
-    .partition-form {
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
+  .partition-form {
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   input[type=password],
   input[type=text] {
@@ -124,7 +99,7 @@ $background_color: #404142;
     box-sizing: border-box;
     margin-bottom: 4px;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2;
     border: 0;
     border-bottom: 1px solid #DDDEDF;
@@ -168,7 +143,7 @@ $background_color: #404142;
   .button-set {
     margin-bottom: 8px;
   }
-}
+
 .pop-out-enter-active,
 .pop-out-leave-active {
   transition: all 0.5s;

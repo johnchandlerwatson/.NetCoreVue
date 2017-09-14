@@ -24,6 +24,7 @@ namespace Vue.Controllers
                 {
                     new Party
                     { 
+                        Waiter = new Waiter { FirstName = "Crispy", LastName = "Kreme" },
                         Table = new Table { Number = 1 },
                         Orders = new List<Order>
                         {
@@ -34,7 +35,7 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Coke" }
+                                        Item = new Item { Price = 2.5, ItemSubType = ItemSubType.Soda, Name = "Coke" }
                                     }
                                 }
                             },
@@ -45,12 +46,12 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Sprite" }
+                                        Item = new Item { Price = 2.5, ItemSubType = ItemSubType.Soda, Name = "Sprite" }
                                     },
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 1, ItemType = ItemType.Food, Name = "Cookie" }
+                                        Item = new Item { Price = 1, ItemSubType = ItemSubType.App, Name = "Cookie" }
                                     }
                                 }
                             },
@@ -61,12 +62,12 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 4, ItemType = ItemType.Drink, Name = "Beer" }
+                                        Item = new Item { Price = 4, ItemSubType = ItemSubType.Soda, Name = "Beer" }
                                     },
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 6, ItemType = ItemType.Food, Name = "Pizza" }
+                                        Item = new Item { Price = 6, ItemSubType = ItemSubType.Entree, Name = "Pizza" }
                                     }
                                 }
                             },
@@ -77,14 +78,15 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-25),
-                                        Item = new Item { Price = 3, ItemType = ItemType.Drink, Name = "Shake" }
+                                        Item = new Item { Price = 3, ItemSubType = ItemSubType.Soda, Name = "Shake" }
                                     }
                                 }
                             }
                         }
                     },
                     new Party
-                    { 
+                    {
+                        Waiter = new Waiter { FirstName = "Crispy", LastName = "Kreme" },
                         Table = new Table { Number = 2 },
                         Orders = new List<Order>
                         {
@@ -95,12 +97,12 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-11),
-                                        Item = new Item { Price = 2.5, ItemType = ItemType.Drink, Name = "Dr Pepper" }
+                                        Item = new Item { Price = 2.5, ItemSubType = ItemSubType.Soda, Name = "Dr Pepper" }
                                     },
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-11),
-                                        Item = new Item { Price = 2, ItemType = ItemType.Food, Name = "Fries" }
+                                        Item = new Item { Price = 2, ItemSubType = ItemSubType.App, Name = "Fries" }
                                     }
                                 }
                             }
@@ -108,6 +110,7 @@ namespace Vue.Controllers
                     },
                     new Party
                     { 
+                        Waiter = new Waiter { FirstName = "Mr", LastName = "Bill" },
                         Table = new Table { Number = 3 },
                         Orders = new List<Order>
                         {
@@ -118,7 +121,7 @@ namespace Vue.Controllers
                                     new ItemOrder 
                                     { 
                                         TimeRequested = DateTime.Now.AddMinutes(-6),
-                                        Item = new Item { Price = 5, ItemType = ItemType.Food, Name = "Burger" }
+                                        Item = new Item { Price = 5, ItemSubType = ItemSubType.Sandwich, Name = "Burger" }
                                     }
                                 }
                             }
@@ -126,7 +129,57 @@ namespace Vue.Controllers
                     },
                     new Party
                     { 
+                        Waiter = new Waiter { FirstName = "Mr", LastName = "Bill" },
                         Table = new Table { Number = 4 }
+                    },
+                    new Party
+                    { 
+                        Waiter = new Waiter { FirstName = "William", LastName = "Wallace" },
+                        Table = new Table { Number = 5 },
+                        Orders = new List<Order>
+                        {
+                            new Order(1)
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-6),
+                                        Item = new Item { Price = 5, ItemSubType = ItemSubType.Sandwich, Name = "Burger" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    new Party
+                    { 
+                        Waiter = new Waiter { FirstName = "William", LastName = "Wallace" },
+                        Table = new Table { Number = 6 },
+                        Orders = new List<Order>
+                        {
+                            new Order(1)
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-15),
+                                        Item = new Item { Price = 3, ItemSubType = ItemSubType.Sandwich, Name = "Sandwich" }
+                                    }
+                                }
+                            },
+                            new Order(2)
+                            {
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder 
+                                    { 
+                                        TimeRequested = DateTime.Now.AddMinutes(-17),
+                                        Item = new Item { Price = 2, ItemSubType = ItemSubType.App, Name = "Pickles" }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             };
