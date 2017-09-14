@@ -50,14 +50,25 @@
       },
       methods: {
         addOrder () {
-          this.$http
-            .post('/api/orders/add', { categories: this.model.categories })
-            .then((res) => {
-              if (res.body) {
-                this.$modal.hide('order-modal')
-              }
+          // this.$http
+          //   .post('/api/orders/add', payload)
+          //   .then((res) => {
+          //     if (res.body) {
+          //       this.$modal.hide('order-modal')
+          //     }
+          //   })
+          //   .catch((ex) => console.log(ex))
+
+          fetch('/api/orders/add',
+            {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(this.model)
             })
-            .catch((ex) => console.log(ex))
+          .then(function (res) { res.json() })
         },
         beforeClose (event) {
           if (this.notValidPin) {
