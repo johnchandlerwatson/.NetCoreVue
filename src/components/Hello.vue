@@ -18,6 +18,7 @@
     </div>
     <loginmodal/>
     <ordermodal/>
+    <checkoutmodal/>
     <v-dialog/>
   </div>
 </template>
@@ -26,11 +27,12 @@
   import party from './Party.vue'
   import loginmodal from './LoginModal.vue'
   import ordermodal from './OrderModal.vue'
+  import checkoutmodal from './CheckoutModal.vue'
 
   export default {
     name: 'hello',
 
-    components: { party, loginmodal, ordermodal },
+    components: { party, loginmodal, ordermodal, checkoutmodal },
 
     data () {
       var model = {activeParties: [{table: {number: 1}}]}
@@ -55,7 +57,7 @@
         this.$modal.show('order-modal')
       },
       showCheckoutModal () {
-        this.$modal.show('add-checkout-modal')
+        this.$modal.show('checkout-modal')
       }
     }
   }

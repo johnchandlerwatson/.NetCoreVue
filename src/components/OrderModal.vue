@@ -1,6 +1,6 @@
 <template>
-    <modal name="order-modal" transition="pop-out" :width="modalWidth" :pivotY=0.0 height="auto" :scrollable="true" @before-close="beforeClose">
-        <div class=".box-order ">
+    <modal name="order-modal" transition="pop-out" :width="modalWidth" :pivotY=0.0 height="auto" :scrollable="true">
+        <div class="box-order ">
           <div class="order-modal-title">ADD ORDER</div>                      
               <div class="partition-form">
                 <form autocomplete="false">
