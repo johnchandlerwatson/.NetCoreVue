@@ -9,6 +9,7 @@ namespace Vue.Domain
     {
         public Guid Id { get; set; }
         public double Price { get; set; }
+        public string PriceDisplay => Price.ToString("C2");
         public string Name { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public ItemType ItemType => Dictionary[ItemSubType];

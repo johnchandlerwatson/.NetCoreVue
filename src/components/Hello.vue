@@ -27,7 +27,7 @@
   import party from './Party.vue'
   import loginmodal from './LoginModal.vue'
   import ordermodal from './OrderModal.vue'
-  import checkoutmodal from './CheckoutModal.vue'
+  import checkoutmodal from './Checkout/CheckoutModal.vue'
 
   export default {
     name: 'hello',

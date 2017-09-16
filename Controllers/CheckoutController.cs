@@ -14,7 +14,7 @@ namespace Vue.Controllers
         [HttpGet]
         public CheckoutModel Get()
         {
-            return new CheckoutModel {
+            var model = new CheckoutModel {
                 Parties = new List<Party> 
                 {
                     new Party 
@@ -44,18 +44,76 @@ namespace Vue.Controllers
                                     }
                                 }
                             }
+                        },
+                        Discount = new Discount 
+                        {
+                            Name = "Old timer",
+                            Percent = .1
                         }
                     },
                     new Party 
                     {
-                        Id = Guid.NewGuid(),
+                        Id = Guid.NewGuid(), 
                         Table = new Table 
                         {
                             Number = 2
+                        },
+                        Orders = new List<Order> 
+                        {
+                            new Order(2)
+                            { 
+                                Items = new List<ItemOrder>
+                                {
+                                    new ItemOrder
+                                    {
+                                        TimeRequested = DateTime.Now.AddMinutes(-15),
+                                        TimeReceived = DateTime.Now,
+                                        Quantity = 1,
+                                        Item = new Item 
+                                        { 
+                                            Name = "Iceberg",
+                                            Price = 3,
+                                            ItemSubType = ItemSubType.Salad
+                                        }
+                                    },
+                                    new ItemOrder
+                                    {
+                                        TimeRequested = DateTime.Now.AddMinutes(-15),
+                                        TimeReceived = DateTime.Now,
+                                        Quantity = 1,
+                                        Item = new Item 
+                                        { 
+                                            Name = "Reuben",
+                                            Price = 4.75,
+                                            ItemSubType = ItemSubType.Sandwich
+                                        }
+                                    },
+                                    new ItemOrder
+                                    {
+                                        TimeRequested = DateTime.Now.AddMinutes(-15),
+                                        TimeReceived = DateTime.Now,
+                                        Quantity = 2,
+                                        Item = new Item 
+                                        { 
+                                            Name = "Fries",
+                                            Price = 2,
+                                            ItemSubType = ItemSubType.App
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        Taxes = new List<Tax> 
+                        {
+                            new FederalTax
+                            {
+                                Percent = .05
+                            }
                         }
                     } 
                 }
             };
+            return model;
         }
 
         [HttpGet("{id}")]

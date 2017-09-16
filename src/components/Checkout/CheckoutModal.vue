@@ -30,19 +30,15 @@
                             <label v-bind:for="itemOrder.item.name">{{itemOrder.item.name}}</label>
                           </div>
                           <div class="col-sm-6">
-                            <span v-bind:value="itemOrder.item.price">{{itemOrder.item.price}}</span>
+                            <span>
+                              {{itemOrder.item.priceDisplay}}
+                              <span v-if="itemOrder.quantity > 1">(x{{itemOrder.quantity}})</span>
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="row total-row">
-                      <div class="col-sm-6">
-                        <label v-bind:for="partyToCheckout.total">Total</label>
-                      </div>
-                      <div class="col-sm-6">
-                        <span v-bind:value="partyToCheckout.total">{{partyToCheckout.total}}</span>
-                      </div>
-                    </div>
+                    <totals :partyToCheckout="partyToCheckout"></totals>
                   </div>
                   <div v-else>
                     <h3>No orders for the party :(</h3>
@@ -59,9 +55,13 @@
     </modal>
 </template>
 <script>
+    import totals from './CheckoutTotals.vue'
+
     const MODAL_WIDTH = 900
     export default {
       name: 'checkoutmodal',
+
+      components: { totals },
 
       data () {
         return {
