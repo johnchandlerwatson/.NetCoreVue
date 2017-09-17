@@ -1,5 +1,5 @@
 <template>
-    <modal name="checkout-modal" transition="pop-out" :width="modalWidth" :pivotY=0.0 height="auto" :scrollable="true">
+    <modal name="checkout-modal" transition="pop-out" :width="modalWidth" :pivotY=0.1 height="auto" :scrollable="true">
       <div class="container">
         <div class="box-checkout">
           <div class="checkout-modal-title">CHECKOUT</div>                      
@@ -45,7 +45,8 @@
                   </div>
                 </form>
                 <div class="btn-holder" style="margin-bottom: 20px;" v-if="partyAndOrders">
-                  <button class="btn btn-lg btn-success" v-on:click="checkout">PRINT</button>
+                  <button class="btn btn-md btn-success" v-on:click="checkout">OK</button>
+                  <button class="btn btn-md btn-default" v-on:click="closeModal">Cancel</button>
                 </div>
               </div>
             </div>
@@ -98,6 +99,9 @@
           this.partyToCheckout = this.model.parties.find(function (party) {
             return party.table.number === tableNumber
           })
+        },
+        closeModal () {
+          this.$modal.hide('checkout-modal')
         }
       }
     }
@@ -116,10 +120,8 @@
   background: white;
   overflow: hidden;
   width: 900px;
-  height: 700px;
   border-radius: 2px;
   box-sizing: border-box;
-  box-shadow: 0 0 40px black;
   color: #8b8c8d;
 }
 

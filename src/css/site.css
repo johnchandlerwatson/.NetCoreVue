@@ -20,6 +20,11 @@ html, body {
     justify-content: flex-end;
     display: flex;
     margin-right: 75px;
+    margin-bottom: 20px;
+}
+
+.btn-holder > button {
+    margin-right: 15px;
 }
 
 img {

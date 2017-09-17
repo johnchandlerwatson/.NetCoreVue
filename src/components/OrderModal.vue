@@ -16,7 +16,7 @@
                     </div>
                   </div>
                 </form>
-                <div class="btn-holder" style="margin-bottom: 20px;">
+                <div class="btn-holder">
                   <button class="btn btn-lg btn-success" v-on:click="addOrder">ADD</button>
                 </div>
               </div>
@@ -92,7 +92,7 @@
   box-sizing: border-box;
   box-shadow: 0 0 40px black;
   color: #8b8c8d;
-  font-size: 0;
+  font-size: 15px;
 }
 .flexrow-left {
   display: flex;

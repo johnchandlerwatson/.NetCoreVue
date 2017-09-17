@@ -1,18 +1,18 @@
 <template>
-    <div class="item-order">
-      <label :for="makeId(item.Id, 'name')">Name</label>
-      <input :id="makeId(item.Id, 'name')" v-model="item.name" type="text" placeholder="Name">
-      <label :for="makeId(item.Id, 'quantity')">Quantity</label>
-      <div class="row align-row">
-        <div class="col-sm-6">
-          <p class="quantity">{{this.quantity}}</p>
-        </div>
-        <div class="col-sm-6">
-          <button class="btn btn-sm btn-info quantity-button" v-on:click="addQuantity">+</button>
-          <button class="btn btn-sm btn-info quantity-button" v-on:click="removeQuantity">-</button>
-        </div>
-      </div>   
+  <div class="item-order"> 
+    <div class="row align-row">
+      <label v-bind:for="this.item.name">{{this.item.name}}</label>
     </div>
+    <div class="row align-row">
+      <div class="col-sm-4">
+        <p class="quantity">{{this.quantity}}</p>
+      </div>
+      <div class="col-sm-8">   
+        <button class="btn btn-sm btn-info quantity-button" v-on:click="addQuantity">+</button>
+        <button class="btn btn-sm btn-info quantity-button" v-on:click="removeQuantity">-</button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -30,9 +30,6 @@
       }
     },
     methods: {
-      makeId (index, name) {
-        return index + '_' + name
-      },
       addQuantity () {
         this.quantity++
       },
@@ -65,14 +62,14 @@
   }
 
   .quantity {
-    padding-left: 25px; 
     color: white;
     font-size: 18px;
+    padding-left: 20px;
   }
 
   .quantity-button {
     width: 30px; 
-    min-width:30px; 
-    margin-bottom: 5px;
+    min-width: 30px;
+    margin-right: 5px;
   }
 </style>
