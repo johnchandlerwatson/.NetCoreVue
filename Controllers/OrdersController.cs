@@ -50,15 +50,27 @@ namespace Vue.Controllers
             return model;
         }
 
+        // [Route("api/[controller]/add")]
+        // [HttpPost]
+        // public bool Get(OrderModel ordermodel)
+        // {
+        //     var order = new Order(5)
+        //     {
+        //         Items = ordermodel.Categories.SelectMany(x => x.Subcategories.SelectMany(y => y.Items)).ToList()
+        //     };
+        //     return true;
+        // }
+
         [Route("api/[controller]/add")]
         [HttpPost]
-        public bool Get(OrderModel ordermodel)
+        public bool Get(Payload payload)
         {
-            var order = new Order(5)
-            {
-                Items = ordermodel.Categories.SelectMany(x => x.Subcategories.SelectMany(y => y.Items)).ToList()
-            };
             return true;
+        }
+
+        public class Payload
+        {
+            public int id { get; set; }
         }
     }
 }

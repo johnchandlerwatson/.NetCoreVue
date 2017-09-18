@@ -117,6 +117,7 @@ namespace Vue.Controllers
         }
 
         [HttpGet("{id}")]
+        [Route("api/[controller]/{id}")]
         public string Get(int id)
         {
             return "value";

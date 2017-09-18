@@ -50,8 +50,10 @@
       },
       methods: {
         addOrder () {
+          // var payload = JSON.stringify(this.model)
+          var payload = { id: 3 }
           // this.$http
-          //   .post('/api/orders/add', payload)
+          //   .post('/api/orders/add', JSON.stringify(payload))
           //   .then((res) => {
           //     if (res.body) {
           //       this.$modal.hide('order-modal')
@@ -59,16 +61,22 @@
           //   })
           //   .catch((ex) => console.log(ex))
 
-          fetch('/api/orders/add',
-            {
-              method: 'POST',
-              headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(this.model)
-            })
-          .then(function (res) { res.json() })
+          this.$http.post('/api/orders/add', JSON.stringify(payload)s, function (success) {
+            if (success) {
+              this.$modal.hide('order-modal')
+            }
+          })
+
+          // fetch('/api/orders/add',
+          //   {
+          //     method: 'POST',
+          //     headers: {
+          //       'Accept': 'application/json, text/plain, */*',
+          //       'Content-Type': 'application/json'
+          //     },
+          //     body: payload
+          //   })
+          // .then(function (res) { res.json() })
         }
       }
     }
