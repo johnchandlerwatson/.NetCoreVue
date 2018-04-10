@@ -6,8 +6,10 @@
 
 ## Dependencies:
 * .net core 2.0
-* node
+<br>https://www.microsoft.com/net/learn/get-started/macos
 * npm
+<br>https://www.npmjs.com/get-npm
+* node
 * vue-cli
 ```
     npm install vue-cli --global
